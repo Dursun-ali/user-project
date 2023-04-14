@@ -26,8 +26,8 @@ const AddUser = () => {
                 style={{ borderRadius: "12px" }}
                 className="col-xl-6 col-lg-7 col-md-8 col-sm-9 m-auto form-container">
                 <div style={{ padding: "72px 36px" }} className="row">
-                  {/* <form onSubmit={onSubmit}> */}
-                    <div className="col-6 d-flex justify-content-center">
+                  
+                    <div className="col-12 col-md-6">
                       <div className="input-div">
                         <div className="field">
                           <input onChange={onChangeInput} name="FirstName" type="text" required autoComplete="off" id="username" />
@@ -35,7 +35,7 @@ const AddUser = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-6 d-flex justify-content-center">
+                    <div className="col-12 col-md-6">
                       <div className="input-div">
                         <div className="field">
                           <input onChange={onChangeInput} name="LastName" type="text" required autoComplete="off" id="username" />
@@ -43,7 +43,7 @@ const AddUser = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-6 d-flex justify-content-center">
+                    <div className="col-12 col-md-6">
                       <div className="input-div">
                         <div className="field">
                           <input onChange={onChangeInput} name="Age" type="text" required autoComplete="off" id="username" />
@@ -51,7 +51,7 @@ const AddUser = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-6 d-flex justify-content-center">
+                    <div className="col-12 col-md-6">
                       <div className="input-div">
                         <div className="field">
                           <input onChange={onChangeInput} type="text" name="Gender" required autoComplete="off" id="username" />
@@ -59,7 +59,7 @@ const AddUser = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-12 d-flex justify-content-center ">
+                    <div className="col-md-12  ">
                       <div className="input-div">
                         <div className="secondField ">
                           <input onChange={onChangeInput} type="text" name="Email" required autoComplete="off" id="username" />
@@ -67,7 +67,7 @@ const AddUser = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-12 d-flex justify-content-center">
+                    <div className="col-md-12 ">
                       <div className="input-div">
                         <div className="secondField"  >
                           <input onChange={onChangeInput} type="text" name="PhotoUrl" required autoComplete="off" id="username" />
@@ -75,7 +75,7 @@ const AddUser = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-12 d-flex justify-content-center">
+                    <div className="col-md-12 ">
                       <div className="input-div">
                         <div className="secondField">
                           <input onChange={onChangeInput} type="text" name="Mobile" required autoComplete="off" id="username" />
@@ -83,14 +83,13 @@ const AddUser = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-12 d-flex justify-content-center button-div" >
+                    <div className="col-md-12  button-div" >
                       <div onClick={userSave} className="button-add">
                         <Link className="linkAddUser d-flex justify-content-center " to='/'>
                           ADD USER
                         </Link>
                       </div>
                     </div>
-                  {/* </form> */}
                 </div>
               </div>
             </div>
