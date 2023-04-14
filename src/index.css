@@ -36,6 +36,9 @@ body {
   .detailsButton {
     padding: 2px 16px !important;
   }
+  .button-box i {
+    font-size: 15px !important;
+  }
 
   .details-img {
     width: 140px !important;
@@ -150,6 +153,9 @@ body {
 
   .button-box {
     padding: 5px 24px !important;
+  }
+  .button-box i {
+    font-size: 12px !important;
   }
 
   .button-write {
