@@ -68,7 +68,7 @@ const Home = () => {
               <div style={{ padding: 0 }} className="col-3 ">
                 <div className="title-container">Email</div>
               </div>
-              <div style={{ paddingLeft: 0 }} className="col  ">
+              <div style={{ paddingLeft: 0 ,paddingRight:0}} className="col  ">
                 <div className="title-container">User Details</div>
               </div>
             </div>
@@ -76,7 +76,7 @@ const Home = () => {
             {datas.map((oItem, oIndex) => {
               return (
                 <div key={oIndex} className="row">
-                  <div style={{ paddingRight: 0 ,paddingRight:0 }} className="col  ">
+                  <div style={{ paddingRight: 0 }} className="col  ">
                     <div className="second-title-container">
                       <img
                         className="list-img rounded-circle"
