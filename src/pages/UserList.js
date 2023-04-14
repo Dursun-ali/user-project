@@ -30,7 +30,6 @@ const Home = () => {
               </div>
               <div className="col-6">
                 <div
-                  style={{ paddingRight: "42px" }}
                   className="button-container d-flex justify-content-end"
                 >
                   <Link className="link-add" to="/AddUser">
@@ -50,7 +49,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div style={{ paddingTop: "32px" }} className="row">
+            <div style={{ margin:0 }} className="row secondRow">
               <div style={{ paddingRight: 0 }} className="col  ">
                 <div className="title-container">Photo</div>
               </div>
@@ -80,9 +79,8 @@ const Home = () => {
                   <div style={{ paddingRight: 0 }} className="col  ">
                     <div className="second-title-container">
                       <img
-                        className="rounded-circle"
+                        className="list-img rounded-circle"
                         src={oItem.picture.large}
-                        width={"35px"}
                         alt=""
                       />
                     </div>

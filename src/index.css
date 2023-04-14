@@ -1,4 +1,257 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-body{
+
+body {
   font-family: 'Poppins', sans-serif;
+}
+
+@media(max-width:1199.98px) {
+  .first-details-p {
+    padding: 68px 64px 24px 48px !important;
+  }
+
+  .exit-button {
+    padding: 68px 48px 48px !important;
+  }
+
+  .secondDetailsWrapper {
+    padding: 32px 180px 85px 48px !important;
+  }
+
+}
+
+@media(max-width:991.98px) {
+  .first-details-p {
+    padding: 68px 16px 16px !important;
+    font-size: 24px !important;
+  }
+
+  .exit-button {
+    padding: 68px 16px 32px !important;
+  }
+
+  .secondDetailsWrapper {
+    padding: 32px 100px 85px 24px !important;
+  }
+
+  .detailsButton {
+    padding: 2px 16px !important;
+  }
+
+  .details-img {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .second-details-p {
+    padding: 48px 0 !important;
+    font-size: 17px !important;
+  }
+
+  .editButton {
+    padding: 10px 64px !important;
+  }
+
+  .secondWriteWrapper {
+    padding: 32px 0 24px !important;
+  }
+
+  .secondWriteWrapper1 {
+    padding: 0px 0px 24px !important;
+  }
+
+  .secondWrite-div {
+    font-size: 16px !important;
+  }
+
+  .secondWriteLast-div {
+    font-size: 16px !important;
+  }
+
+  .secondWriteIcon {
+    font-size: 19px !important;
+    padding-right: 18px !important;
+  }
+
+  .userWrite {
+    font-size: 25px !important;
+    color: #353535;
+    font-weight: 600;
+    padding-left: 36px !important;
+  }
+
+  .button-container {
+    padding-right: 36px !important;
+  }
+
+  .button-box {
+    padding: 6px 32px !important;
+  }
+
+  .button-write {
+    font-size: 14px !important;
+  }
+  .title-container{
+    padding: 16px 0 !important;
+    font-size: 13px !important;
+  }
+  .second-title-container{
+    font-size: 12px !important;
+  }
+  .list-img{
+    width: 32px !important;
+    height: 32px !important;
+}
+}
+
+
+@media(max-width:767.98px) {
+  .first-details-p {
+    padding: 68px 8px 16px 110px !important;
+    font-size: 28px !important;
+    display: flex !important;
+    justify-content: center !important;
+
+  }
+
+  .exit-button {
+    padding: 72px 16px 32px !important;
+  }
+
+  .secondDetailsWrapper {
+    padding: 32px 20px 85px !important;
+  }
+
+  .details-img {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .second-details-p {
+    font-size: 20px !important;
+  }
+
+  .editButton {
+    padding: 12px 120px !important;
+  }
+
+  .firstDetailsWrapper {
+    border-right: none !important;
+    margin: 0 auto !important;
+  }
+
+  .userWrite {
+    font-size: 22px !important;
+    padding-left: 24px !important;
+  }
+
+  .button-container {
+    padding-right: 24px !important;
+  }
+
+  .button-box {
+    padding: 5px 24px !important;
+  }
+
+  .button-write {
+    font-size: 13px !important;
+  }
+  .title-container{
+    padding: 16px 0 !important;
+    font-size: 10px !important;
+  }
+  .second-title-container{
+    font-size: 10px !important;
+}
+.list-img{
+  width: 30px !important;
+  height: 30px !important;
+}
+.secondRow{
+  padding-top: 16px !important;
+ }
+}
+
+@media(max-width:575.98px) {
+  .first-details-p {
+    padding: 68px 36px 16px 110px !important;
+    font-size: 28px !important;
+    display: flex !important;
+    justify-content: center !important;
+    font-size: 23px !important;
+  }
+
+  .detailsButton {
+    padding: 1px 14px !important;
+  }
+
+  .detailsButton i {
+    font-size: 14px !important;
+  }
+
+  .secondDetailsWrapper {
+    padding: 8px 16px 85px !important;
+  }
+
+  .details-img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .second-details-p {
+    font-size: 17px !important;
+    padding: 36px 0 !important;
+  }
+
+  .editButton {
+    padding: 10px 90px !important;
+  }
+
+  .firstDetailsWrapper {
+    border-right: none !important;
+    margin: 0 auto !important;
+    padding: 16px 0 52px !important;
+  }
+
+  .secondWrite-div {
+    font-size: 15px !important;
+  }
+
+  .secondWriteLast-div {
+    font-size: 15px !important;
+  }
+
+  .secondWriteIcon {
+    font-size: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  
+  .userWrite {
+    font-size: 22px !important;
+    padding-left: 20px !important;
+  }
+
+  .button-container {
+    padding-right: 20px !important;
+  }
+
+  .button-box {
+    padding: 4px 22px !important;
+  }
+
+  .button-write {
+    font-size: 12px !important;
+  }
+  .title-container{
+    padding: 12px 0 !important;
+    font-size: 7px !important;
+  }
+  .second-title-container{
+    font-size: 7px !important;
+}
+.list-img{
+  width: 22px !important;
+  height: 22px !important;
+}
+
 }
