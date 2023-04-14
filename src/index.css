@@ -173,11 +173,11 @@ body {
 
 @media(max-width:575.98px) {
   .first-details-p {
-    padding: 68px 36px 16px 110px !important;
+    padding: 68px 8px 16px 80px !important;
     font-size: 28px !important;
     display: flex !important;
     justify-content: center !important;
-    font-size: 23px !important;
+    font-size: 21px !important;
   }
 
   .detailsButton {
@@ -213,15 +213,17 @@ body {
   }
 
   .secondWrite-div {
-    font-size: 15px !important;
+    font-size: 14px !important;
   }
 
   .secondWriteLast-div {
-    font-size: 15px !important;
+    font-size: 12px !important;
+    display: flex !important;
+    align-items: center !important;
   }
 
   .secondWriteIcon {
-    font-size: 18px !important;
+    font-size: 16px !important;
     padding-right: 18px !important;
   }
 
@@ -236,11 +238,11 @@ body {
   }
 
   .button-box {
-    padding: 4px 22px !important;
+    padding: 3px 22px !important;
   }
 
   .button-write {
-    font-size: 12px !important;
+    font-size: 11px !important;
   }
   .title-container{
     padding: 12px 0 !important;
