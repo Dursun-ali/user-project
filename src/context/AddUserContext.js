@@ -11,7 +11,7 @@ export const UserProvider = ({ children }) => {
     const [myData, setMyData] = useState([]);
     const [number,setNumber]=useState(0);
     const [userDetail, setUserDetail] = useState();
-    const [dataNumber,setDataNumber]=useState(5);
+    const [dataNumber,setDataNumber]=useState(10);
     const [idNumber,setIdNumber]=useState();
 
     useEffect(() => {
