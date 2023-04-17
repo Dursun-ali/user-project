@@ -2,18 +2,22 @@ import {  createContext, useState,useEffect } from "react";
 import axios from "axios";
 const AddUsercontext = createContext();
 
+    
 
 export const UserProvider = ({ children }) => {
 
-  const[form,setForm]=useState();
-    const [datas, setDatas] = useState([]);
+    const[form,setForm]=useState();
+    const [datas, setDatas] = useState([]); 
     const [loading, setLoading] = useState();
     const [myData, setMyData] = useState([]);
     const [number,setNumber]=useState(0);
     const [userDetail, setUserDetail] = useState();
-    const [dataNumber,setDataNumber]=useState(10);
+    const [dataNumber,setDataNumber]=useState(2);
     const [idNumber,setIdNumber]=useState();
+    const [newUser, setNewUser]=useState({});
 
+    const [edit,setEdit] = useState(false);
+  
     useEffect(() => {
         axios(`https://randomuser.me/api/?results=${dataNumber}`)
           .then((response) => setDatas(response.data.results))
@@ -23,8 +27,8 @@ export const UserProvider = ({ children }) => {
           });
       }, []);
       
+
 useEffect(() => {
-  
   form && setMyData([...myData,form])
 }, [form])
 
@@ -42,8 +46,12 @@ useEffect(() => {
         dataNumber,
         setDataNumber,
         idNumber,
-        setIdNumber
-   
+        setIdNumber,
+        edit, 
+        setEdit,
+        newUser,
+        setNewUser,
+        
     }
     
     return (

@@ -6,12 +6,9 @@ import UserDetails from './pages/UserDetails';
 import { UserProvider } from './context/AddUserContext';
 
 function App() {
-  
- 
+
   return (
   <>
-
-
   <UserProvider>
   <Routes>
     <Route path="/" element ={<UserList />} ></Route>
@@ -20,8 +17,7 @@ function App() {
   </Routes>
   </UserProvider>
 
-  
-  </>
+ </>
   )
 }
 

@@ -2,9 +2,6 @@ import React, { useState, useEffect,useContext } from "react";
 import "./userList.css";
 import { Routes, Route,Link,NavLink } from "react-router-dom";
 import AddUserContex from "../context/AddUserContext";
-import AddUsercontext from "../context/AddUserContext";
-
-
 
 const Home = () => {
 
@@ -13,14 +10,20 @@ const Home = () => {
   const{number,setNumber}=useContext(AddUserContex)
   const{dataNumber,setDataNumber}=useContext(AddUserContex)
   const{idNumber,setIdNumber}=useContext(AddUserContex) 
+  const {edit, setEdit} = useContext(AddUserContex)
+  const {newUser, setNewUser} = useContext(AddUserContex);
 
   const getId= (e) =>{
     setIdNumber(e.target.id)
   }
-
   
+
+
+
+
   return (
     <>
+    
       <div className="main-user-container">
         <div className="user-section">
           <div className="user-header-container">
@@ -32,8 +35,8 @@ const Home = () => {
                 <div
                   className="button-container d-flex justify-content-end"
                 >
-                  <Link className="link-add" to="/AddUser">
-                    <div className="button-box d-flex align-items-center justify-content-center">
+                  <Link  className="link-add" to="/AddUser">
+                    <div onClick={()=>{setEdit(true)}} className="button-box d-flex align-items-center justify-content-center">
                       <i
                         style={{
                           fontSize: "19px",
@@ -50,7 +53,7 @@ const Home = () => {
             </div>
 
             <div style={{ margin:0 }} className="row secondRow">
-              <div style={{ paddingRight: 0 ,paddingLeft:0 }} className="col  ">
+              <div style={{ paddingRight: 0 ,paddingLeft:0 }} className="col">
                 <div className="title-container">Photo</div>
               </div>
               <div style={{ padding: 0 }} className="col ">
@@ -68,7 +71,7 @@ const Home = () => {
               <div style={{ padding: 0 }} className="col-3 ">
                 <div className="title-container">Email</div>
               </div>
-              <div style={{ paddingLeft: 0 ,paddingRight:0}} className="col  ">
+              <div style={{ paddingLeft: 0 ,paddingRight:0}} className="col">
                 <div className="title-container">User Details</div>
               </div>
             </div>
@@ -104,7 +107,7 @@ const Home = () => {
                   <div style={{ paddingLeft: 0 }} className="col  ">
                     <div className="second-title-container">
                        <Link className="userLink" to="/UserDetails"> 
-                        <i id={oIndex} onClick={getId} style={{cursor:"pointer"}} className="fa-solid fa-user"></i>
+                        <i id={oIndex} onClick={(e) => {getId(e)}} style={{cursor:"pointer"}} className="fa-solid fa-user"></i>
                       </Link> 
                     </div>
                   </div>
@@ -114,7 +117,7 @@ const Home = () => {
             })}
             
             {
-              myData.length >= 1 &&
+              (myData.length >= 1) &&
               myData.map((oItem, oIndex) => {
                 return(
                 <div key={oIndex} className="row">
@@ -128,7 +131,7 @@ const Home = () => {
                       {oItem.FirstName}
                     </div>
                   </div>
-                  <div style={{ paddingLeft: 0 }} className="col  ">
+                  <div style={{ paddingLeft: 0,paddingRight:0 }} className="col  ">
                     <div className="second-title-container">
                       {oItem.LastName}
                     </div>
@@ -142,7 +145,7 @@ const Home = () => {
                   <div style={{ paddingLeft: 0 }} className="col  ">
                     <div className="second-title-container">
                       <Link className="userLink" to="/UserDetails">
-                        <i id={oIndex+dataNumber} onClick={getId} style={{cursor:"pointer"}} className="fa-solid fa-user"></i>
+                        <i id={oIndex+dataNumber} onClick={(e) => {getId(e)}} style={{cursor:"pointer"}} className="fa-solid fa-user"></i>
                       </Link>
                     </div>
                   </div>

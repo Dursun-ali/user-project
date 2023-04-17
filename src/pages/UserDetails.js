@@ -3,8 +3,6 @@ import './userDetails.css'
 import { Link } from "react-router-dom";
 import AddUserContex from "../context/AddUserContext";
 
-
-
 const UserDetails= () =>{
 
     const{datas,setDatas}=useContext(AddUserContex) 
@@ -12,7 +10,7 @@ const UserDetails= () =>{
     const{number,setNumber}=useContext(AddUserContex)
     const{idNumber,setIdNumber}=useContext(AddUserContex) 
     const {dataNumber,setDataNumber}=useContext(AddUserContex)
-
+    const { edit, setEdit } = useContext(AddUserContex);
 
 
     return( 
@@ -30,7 +28,7 @@ const UserDetails= () =>{
                     <div style={{padding:0}} className="col-md-6 col-2">
                     <div className="exit-button d-flex justify-content-end">
                             <div  className="detailsButton">
-                            <Link className="userListLink" to='/'><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i></Link> 
+                            <Link className="userListLink" to='/'><i className="fa-sharp fa-solid fa-arrow-right-from-bracket"></i></Link> 
                             </div>
                         </div>
                     </div>
@@ -50,9 +48,12 @@ const UserDetails= () =>{
                             <p className="second-details-p">{ datas? datas[idNumber].name.first: "kullanıcı seçilmedi"} {  datas? datas[idNumber].name.last: "kullanıcı seçilmedi"}</p>
                         </div>
                         <div className="d-flex justify-content-center ">
-                            <div className="editButton ">
+                            <Link to='/AddUser'>
+                            <div onClick={()=>{console.log(datas[idNumber]);setEdit(false)}} className="editButton ">
                             Edit Profile
                             </div> 
+                            </Link>
+                         
                         </div>
                         </div>
                       
@@ -97,7 +98,7 @@ const UserDetails= () =>{
                     <div style={{padding:0}} className="col-md-6 col-2">
                     <div className="exit-button d-flex justify-content-end">
                             <div  className="detailsButton">
-                            <Link className="userListLink" to='/'><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i></Link> 
+                            <Link className="userListLink" to='/'><i className="fa-sharp fa-solid fa-arrow-right-from-bracket"></i></Link> 
                             </div>
                         </div>
                     </div>
@@ -117,9 +118,11 @@ const UserDetails= () =>{
                             <p className="second-details-p">{ myData? myData[idNumber-dataNumber]?.FirstName: "kullanıcı seçilmedi"} {  myData? myData[idNumber-dataNumber]?.LastName: "kullanıcı seçilmedi"}</p>
                         </div>
                         <div className="d-flex justify-content-center ">
-                            <div className="editButton ">
+                        <Link to='/AddUser'>
+                            <div onClick={()=>{console.log(myData[idNumber-dataNumber]);setEdit(false)}} className="editButton ">
                             Edit Profile
                             </div> 
+                        </Link>
                         </div>
                         </div>
                       
@@ -151,11 +154,9 @@ const UserDetails= () =>{
                             <div className="secondWriteLast-div">{  myData? myData[idNumber-dataNumber]?.Age: "kullanıcı seçilmedi"}</div>
                         </div>
                         </div>
-                     
                     </div>
                     </div>
                 </>    
-                
                 }
                 </div>
             </div>

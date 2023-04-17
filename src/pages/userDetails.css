@@ -54,6 +54,10 @@
   color: #fff;
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
+}
+.editButton:hover {
+  text-decoration: none;
 }
 
 .userListLink {
