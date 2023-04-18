@@ -3,6 +3,7 @@ import "./addUser.css";
 import { Link } from "react-router-dom";
 import AddUserContex from "../context/AddUserContext";
 
+
 const AddUser = () => {
   const { form, setForm } = useContext(AddUserContex);
   const { edit, setEdit } = useContext(AddUserContex);
@@ -19,12 +20,12 @@ const AddUser = () => {
   const [gender, setGender] = useState(newUser.Gender);
   const [photoUrl, setPhotoUrl] = useState(newUser.PhotoUrl);
   const [mobile, setMobile] = useState(newUser.Mobile);
-  
+  const [mailControl, setMailControl] = useState(false)
   const onChangeInput = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
-  };
+  }
 
-  
+
     useEffect(()=>{
       setNames(newUser.FirstName);
       setLastName(newUser.LastName);
@@ -35,6 +36,8 @@ const AddUser = () => {
       setMobile(newUser.Mobile);
 
     },[newUser])
+
+    
 
   const change = () => {
     myData[idNumber-dataNumber].FirstName=names;
@@ -60,6 +63,13 @@ const AddUser = () => {
   const userSave = () => {
     setForm(newUser);
   };
+
+  function validateEmail(e, inputText) {
+    inputText ? 
+    document.getElementsByClassName('my-mail-input')[0].style.color="black": document.getElementsByClassName('my-mail-input')[0].style.color="red";
+
+  }
+
   return (
     <>
       <div className="main-addUser-container">
@@ -76,7 +86,7 @@ const AddUser = () => {
                       <div className="field">
                         <input
                           onChange={onChangeInput}
-                          // value={edit ? newUser.FirstName : name}
+                          // value={}
                           name="FirstName"
                           type="text"
                           required
@@ -152,16 +162,22 @@ const AddUser = () => {
                     </div>
                   </div>
                   <div className="col-md-12  ">
+                    
                     <div className="input-div">
-                      <div className="secondField ">
+                      <div className="secondField  ">
                         <input
-                          onChange={onChangeInput}
+                          onChange={(e)=>{setNewUser({ ...newUser, [e.target.name]: e.target.value });
+
+                          var mailControl = e.target.value.match(/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/)
+                          validateEmail(e, mailControl)
+                        }}
                           // value={edit ? newUser.Email : email}
                           type="text"
                           name="Email"
                           required
                           autoComplete="off"
                           id="username"
+                          className="my-mail-input"
                         />
                         <label
                           htmlFor="username"
@@ -176,7 +192,6 @@ const AddUser = () => {
                       <div className="secondField">
                         <input
                           onChange={onChangeInput}
-                          value={edit ? newUser.PhotoUrl : photoUrl}
                           // value={edit ? newUser.PhotoUrl : photoUrl}
                           type="text"
                           name="PhotoUrl"
@@ -195,9 +210,12 @@ const AddUser = () => {
                   <div className="col-md-12 ">
                     <div className="input-div">
                       <div className="secondField">
+                      
                         <input
-                          onChange={onChangeInput}
-                          // value={edit ? newUser.Mobile : mobile}
+                          onChange={(e)=>{setNewUser({ ...newUser, [e.target.name]: e.target.value });
+                        ;var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+                           e.target.value =  !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');}}
+                          //  value={edit ? newUser.Mobile : mobile}
                           type="tel"
                           name="Mobile"
                           required
@@ -224,7 +242,6 @@ const AddUser = () => {
                             change()
                           }
                         }
-                        
                       }
                          
                       }

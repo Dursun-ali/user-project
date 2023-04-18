@@ -45,7 +45,7 @@ const Home = () => {
                         }}
                         className="fa-sharp fa-solid fa-plus"
                       ></i>
-                      <span className="button-write">ADD USER</span>
+                      <span  className="button-write">ADD USER</span>
                     </div>
                   </Link>
                 </div>
