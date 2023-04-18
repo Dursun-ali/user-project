@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
     const [myData, setMyData] = useState([]);
     const [number,setNumber]=useState(0);
     const [userDetail, setUserDetail] = useState();
-    const [dataNumber,setDataNumber]=useState(2);
+    const [dataNumber,setDataNumber]=useState(8);
     const [idNumber,setIdNumber]=useState();
     const [newUser, setNewUser]=useState({});
 
