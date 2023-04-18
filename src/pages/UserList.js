@@ -14,7 +14,7 @@ const Home = () => {
   const {newUser, setNewUser} = useContext(AddUserContex);
 
 
-  
+
   const getId= (e) =>{
     setIdNumber(e.target.id)
   }
@@ -125,7 +125,7 @@ const Home = () => {
                 <div key={oIndex} className="row">
                     <div style={{ paddingRight: 0 }} className="col">
                     <div className="second-title-container">
-                      <img className="rounded-circle" src={oItem.PhotoUrl} width={"35px"} height={"35px"} alt="" /> 
+                      <img className="list-img rounded-circle" src={oItem.PhotoUrl} width={"35px"} height={"35px"} alt="" /> 
                     </div>
                   </div>
                   <div style={{ padding: 0 }} className="col ">
