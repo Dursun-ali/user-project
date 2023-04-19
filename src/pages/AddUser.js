@@ -25,6 +25,7 @@ const AddUser = () => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   }
 
+ 
 
     useEffect(()=>{
       setNames(newUser.FirstName);
@@ -37,25 +38,58 @@ const AddUser = () => {
 
     },[newUser])
 
-    
+      useEffect(()=>{
+        if (edit) {
+
+          if (idNumber<dataNumber) {
+            document.getElementsByClassName('name-user-input')[0].value=datas[idNumber].name.first == undefined ? "": datas[idNumber].name.first;
+            document.getElementsByClassName('LastName-user-input')[0].value=datas[idNumber].name.last == undefined ? "": datas[idNumber].name.last;
+            document.getElementsByClassName('Age-user-input')[0].value=datas[idNumber].dob.age == undefined ? "": datas[idNumber].dob.age;
+            document.getElementsByClassName('Gender-user-input')[0].value=datas[idNumber].gender == undefined ? "": datas[idNumber].gender ;
+            document.getElementsByClassName('Email-user-input')[0].value=datas[idNumber].email == undefined ? "": datas[idNumber].email ;
+            document.getElementsByClassName('PhotoUrl-user-input')[0].value=datas[idNumber].picture.large == undefined ? "": datas[idNumber].picture.large;
+            document.getElementsByClassName('Mobile-user-input')[0].value=datas[idNumber].phone == undefined ? "": datas[idNumber].phone;
+
+          }else{
+            document.getElementsByClassName('name-user-input')[0].value=myData[idNumber-dataNumber].FirstName == undefined ? "": myData[idNumber-dataNumber].FirstName;
+            document.getElementsByClassName('LastName-user-input')[0].value=myData[idNumber-dataNumber].LastName == undefined ? "": myData[idNumber-dataNumber].LastName;
+            document.getElementsByClassName('Age-user-input')[0].value=myData[idNumber-dataNumber].Age == undefined ? "": myData[idNumber-dataNumber].Age;
+            document.getElementsByClassName('Gender-user-input')[0].value=myData[idNumber-dataNumber].Gender == undefined ? "": myData[idNumber-dataNumber].Gender;
+            document.getElementsByClassName('Email-user-input')[0].value=myData[idNumber-dataNumber].Email == undefined ? "": myData[idNumber-dataNumber].Email;
+            document.getElementsByClassName('PhotoUrl-user-input')[0].value=myData[idNumber-dataNumber].PhotoUrl == undefined ? "": myData[idNumber-dataNumber].PhotoUrl;
+            document.getElementsByClassName('Mobile-user-input')[0].value=myData[idNumber-dataNumber].Mobile == undefined ? "": myData[idNumber-dataNumber].Mobile;
+          }
+        }else{
+          document.getElementsByClassName('name-user-input')[0].value="";
+          document.getElementsByClassName('LastName-user-input')[0].value="";
+          document.getElementsByClassName('Age-user-input')[0].value="";
+          document.getElementsByClassName('Gender-user-input')[0].value="";
+          document.getElementsByClassName('Email-user-input')[0].value="";
+          document.getElementsByClassName('PhotoUrl-user-input')[0].value="";
+          document.getElementsByClassName('Mobile-user-input')[0].value="";
+        }
+
+      },[edit])
+
+      
 
   const change = () => {
-    myData[idNumber-dataNumber].FirstName=names;
-    myData[idNumber-dataNumber].LastName=lastName;
-    myData[idNumber-dataNumber].Email=email;
-    myData[idNumber-dataNumber].Mobile=mobile;
-    myData[idNumber-dataNumber].Gender=gender;
-    myData[idNumber-dataNumber].Age=age;
-    myData[idNumber-dataNumber].PhotoUrl=photoUrl;    
+    myData[idNumber-dataNumber].FirstName=document.getElementsByClassName('name-user-input')[0].value;
+    myData[idNumber-dataNumber].LastName=document.getElementsByClassName('LastName-user-input')[0].value;
+    myData[idNumber-dataNumber].Email=document.getElementsByClassName('Email-user-input')[0].value;
+    myData[idNumber-dataNumber].Mobile=document.getElementsByClassName('Mobile-user-input')[0].value;
+    myData[idNumber-dataNumber].Gender=document.getElementsByClassName('Gender-user-input')[0].value;
+    myData[idNumber-dataNumber].Age=document.getElementsByClassName('Age-user-input')[0].value;
+    myData[idNumber-dataNumber].PhotoUrl=document.getElementsByClassName('PhotoUrl-user-input')[0].value;    
   }
   const dataChange = () =>{
-    datas[idNumber].name.first=names;
-    datas[idNumber].name.last=lastName;
-    datas[idNumber].email=email;
-    datas[idNumber].phone=mobile;
-    datas[idNumber].gender=gender;
-    datas[idNumber].age=age;
-    datas[idNumber].picture.large=photoUrl;
+    datas[idNumber].name.first=document.getElementsByClassName('name-user-input')[0].value;
+    datas[idNumber].name.last=document.getElementsByClassName('LastName-user-input')[0].value;
+    datas[idNumber].email=document.getElementsByClassName('Email-user-input')[0].value;
+    datas[idNumber].phone=document.getElementsByClassName('Mobile-user-input')[0].value;
+    datas[idNumber].gender=document.getElementsByClassName('Gender-user-input')[0].value;
+    datas[idNumber].dob.age=document.getElementsByClassName('Age-user-input')[0].value;
+    datas[idNumber].picture.large=document.getElementsByClassName('PhotoUrl-user-input')[0].value;
     
 
   }
@@ -85,13 +119,16 @@ const AddUser = () => {
                     <div className="input-div">
                       <div className="field">
                         <input
-                          onChange={onChangeInput}
-                          // value={}
+                          onChange={(e)=>{
+                            setNewUser({ ...newUser, [e.target.name]: e.target.value });
+                          }}
+                          // value={edit&&names}
                           name="FirstName"
                           type="text"
                           required
                           autoComplete="off"
                           id="username"
+                          className="name-user-input"
                         />
                         <label
                           htmlFor="username"
@@ -106,12 +143,13 @@ const AddUser = () => {
                       <div className="field">
                         <input
                           onChange={onChangeInput}
-                          // value={edit ? newUser.LastName : lastName}
+                          // value={edit && lastName}
                           name="LastName"
                           type="text"
                           required
                           autoComplete="off"
                           id="username"
+                          className="LastName-user-input"
                         />
                         <label
                           htmlFor="username"
@@ -132,6 +170,8 @@ const AddUser = () => {
                           required
                           autoComplete="off"
                           id="username"
+                          className="Age-user-input"
+
                         />
                         <label
                           htmlFor="username"
@@ -152,6 +192,8 @@ const AddUser = () => {
                           required
                           autoComplete="off"
                           id="username"
+                          className="Gender-user-input"
+
                         />
                         <label
                           htmlFor="username"
@@ -177,7 +219,7 @@ const AddUser = () => {
                           required
                           autoComplete="off"
                           id="username"
-                          className="my-mail-input"
+                          className="my-mail-input Email-user-input "
                         />
                         <label
                           htmlFor="username"
@@ -198,6 +240,8 @@ const AddUser = () => {
                           required
                           autoComplete="off"
                           id="username"
+                          className="PhotoUrl-user-input"
+
                         />
                         <label
                           htmlFor="username"
@@ -221,6 +265,8 @@ const AddUser = () => {
                           required
                           autoComplete="off"
                           id="username"
+                          className="Mobile-user-input"
+
                         />
                         <label
                           htmlFor="username"
@@ -231,17 +277,27 @@ const AddUser = () => {
                     </div>
                   </div>
                   <div className="col-md-12  button-div">
+                    
                     <div
                       onClick={ ()=>{
                         if (edit) {
-                          userSave()
-                        }else{
                           if (idNumber<dataNumber) {
                             dataChange()
                           }else{
                             change()
                           }
+                          
+                        } if (!edit ) {
+                            
+                          if (document.getElementsByClassName('name-user-input')[0].value=="") {
+                            alert("lütfen tüm alanları doldurun !")
+                          }else{
+                            userSave()
+                          }
+                          
+                          
                         }
+                        
                       }
                          
                       }
@@ -251,7 +307,7 @@ const AddUser = () => {
                         className="linkAddUser d-flex justify-content-center "
                         to="/"
                       >
-                      { edit ? <>ADD USER</>:<>EDIT USER</>}
+                      { edit ?<>EDIT USER</> :<>ADD USER</>}
                       </Link>
                     </div>
                   </div>

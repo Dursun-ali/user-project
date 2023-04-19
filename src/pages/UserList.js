@@ -1,6 +1,6 @@
 import React, { useState, useEffect,useContext } from "react";
 import "./userList.css";
-import { Routes, Route,Link,NavLink } from "react-router-dom";
+import { Routes, Route,Link,NavLink, useParams } from "react-router-dom";
 import AddUserContex from "../context/AddUserContext";
 
 const Home = () => {
@@ -12,20 +12,14 @@ const Home = () => {
   const{idNumber,setIdNumber}=useContext(AddUserContex) 
   const {edit, setEdit} = useContext(AddUserContex)
   const {newUser, setNewUser} = useContext(AddUserContex);
-
-
+  
 
   const getId= (e) =>{
     setIdNumber(e.target.id)
   }
-  
-
-
-
 
   return (
     <>
-    
       <div className="main-user-container">
         <div className="user-section">
           <div className="user-header-container">
@@ -38,7 +32,7 @@ const Home = () => {
                   className="button-container d-flex justify-content-end"
                 >
                   <Link  className="link-add" to="/AddUser">
-                    <div onClick={()=>{setEdit(true)}} className="button-box d-flex align-items-center justify-content-center">
+                    <div onClick={()=>{setEdit(false)}} className="button-box d-flex align-items-center justify-content-center">
                       <i
                         style={{
                           fontSize: "19px",
@@ -108,7 +102,7 @@ const Home = () => {
                   </div>
                   <div style={{ paddingLeft: 0 }} className="col  ">
                     <div className="second-title-container">
-                       <Link className="userLink" to="/UserDetails"> 
+                       <Link  className="userLink" to="/UserDetails"> 
                         <i id={oIndex} onClick={(e) => {getId(e)}} style={{cursor:"pointer"}} className="fa-solid fa-user"></i>
                       </Link> 
                     </div>

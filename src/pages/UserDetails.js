@@ -1,16 +1,18 @@
 import React,{useContext} from "react";
 import './userDetails.css'
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import AddUserContex from "../context/AddUserContext";
 
 const UserDetails= () =>{
 
+    // const params=useParams();
+    // console.log(params);
     const{datas,setDatas}=useContext(AddUserContex) 
     const{myData,setMyData}=useContext(AddUserContex)
     const{number,setNumber}=useContext(AddUserContex)
     const{idNumber,setIdNumber}=useContext(AddUserContex) 
     const {dataNumber,setDataNumber}=useContext(AddUserContex)
-    const { edit, setEdit } = useContext(AddUserContex);
+    const { edit, setEdit } = useContext(AddUserContex)
 
 
     return( 
@@ -49,7 +51,7 @@ const UserDetails= () =>{
                         </div>
                         <div className="d-flex justify-content-center ">
                             <Link to='/AddUser'>
-                            <div onClick={()=>{console.log(datas[idNumber]);setEdit(false)}} className="editButton ">
+                            <div onClick={()=>{console.log(datas[idNumber]);setEdit(true)}} className="editButton ">
                             Edit Profile
                             </div> 
                             </Link>
@@ -119,7 +121,7 @@ const UserDetails= () =>{
                         </div>
                         <div className="d-flex justify-content-center ">
                         <Link to='/AddUser'>
-                            <div onClick={()=>{console.log(myData[idNumber-dataNumber]);setEdit(false)}} className="editButton ">
+                            <div onClick={()=>{console.log(myData[idNumber-dataNumber]);setEdit(true)}} className="editButton ">
                             Edit Profile
                             </div> 
                         </Link>

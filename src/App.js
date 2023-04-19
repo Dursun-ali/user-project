@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route,Link,NavLink } from "react-router-dom";
+import { Routes, Route,Link,NavLink, useParams } from "react-router-dom";
 import AboutUs from './pages/AddUser';
 import UserList from './pages/UserList';
 import UserDetails from './pages/UserDetails';
@@ -20,5 +20,7 @@ function App() {
  </>
   )
 }
+
+
 
 export default App;
