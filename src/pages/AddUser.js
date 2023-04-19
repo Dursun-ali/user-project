@@ -21,12 +21,13 @@ const AddUser = () => {
   const [photoUrl, setPhotoUrl] = useState(newUser.PhotoUrl);
   const [mobile, setMobile] = useState(newUser.Mobile);
   const [mailControl, setMailControl] = useState(false)
+  const [color,setColor] =useState();
+  const [lenght,setLenght]=useState();
+
   const onChangeInput = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   }
-
  
-
     useEffect(()=>{
       setNames(newUser.FirstName);
       setLastName(newUser.LastName);
@@ -99,9 +100,16 @@ const AddUser = () => {
   };
 
   function validateEmail(e, inputText) {
-    inputText ? 
-    document.getElementsByClassName('my-mail-input')[0].style.color="black": document.getElementsByClassName('my-mail-input')[0].style.color="red";
 
+    if (inputText) {
+      document.getElementsByClassName('my-mail-input')[0].style.color="black";
+      setColor("black")
+    }else{
+      document.getElementsByClassName('my-mail-input')[0].style.color="red";
+      setColor("red")
+    }
+    // inputText ? 
+    // document.getElementsByClassName('my-mail-input')[0].style.color="black" : document.getElementsByClassName('my-mail-input')[0].style.color="red";
   }
 
   return (
@@ -122,7 +130,6 @@ const AddUser = () => {
                           onChange={(e)=>{
                             setNewUser({ ...newUser, [e.target.name]: e.target.value });
                           }}
-                          // value={edit&&names}
                           name="FirstName"
                           type="text"
                           required
@@ -143,7 +150,6 @@ const AddUser = () => {
                       <div className="field">
                         <input
                           onChange={onChangeInput}
-                          // value={edit && lastName}
                           name="LastName"
                           type="text"
                           required
@@ -164,7 +170,6 @@ const AddUser = () => {
                       <div className="field">
                         <input
                           onChange={onChangeInput}
-                          // value={edit ? newUser.Age : age}
                           name="Age"
                           type="text"
                           required
@@ -186,7 +191,6 @@ const AddUser = () => {
                       <div className="field">
                         <input
                           onChange={onChangeInput}
-                          // value={edit ? newUser.Gender : gender}
                           type="text"
                           name="Gender"
                           required
@@ -213,7 +217,6 @@ const AddUser = () => {
                           var mailControl = e.target.value.match(/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/)
                           validateEmail(e, mailControl)
                         }}
-                          // value={edit ? newUser.Email : email}
                           type="text"
                           name="Email"
                           required
@@ -234,7 +237,6 @@ const AddUser = () => {
                       <div className="secondField">
                         <input
                           onChange={onChangeInput}
-                          // value={edit ? newUser.PhotoUrl : photoUrl}
                           type="text"
                           name="PhotoUrl"
                           required
@@ -258,8 +260,7 @@ const AddUser = () => {
                         <input
                           onChange={(e)=>{setNewUser({ ...newUser, [e.target.name]: e.target.value });
                         ;var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-                           e.target.value =  !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');}}
-                          //  value={edit ? newUser.Mobile : mobile}
+                           e.target.value =  !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : ''); setLenght(e.target.value.length) }}
                           type="tel"
                           name="Mobile"
                           required
@@ -281,34 +282,36 @@ const AddUser = () => {
                     <div
                       onClick={ ()=>{
                         if (edit) {
+                          setColor("black");
+                          setLenght(14)
                           if (idNumber<dataNumber) {
                             dataChange()
                           }else{
                             change()
                           }
                           
-                        } if (!edit ) {
-                            
-                          if (document.getElementsByClassName('name-user-input')[0].value=="") {
-                            alert("lütfen tüm alanları doldurun !")
-                          }else{
-                            userSave()
-                          }
-                          
-                          
+                        }else{
+                          userSave()
                         }
-                        
                       }
                          
                       }
                       className="button-add"
                     >
-                      <Link
+                        {
+                        color=="black"&&lenght>=14 ? <>
+                        
+                          <Link
                         className="linkAddUser d-flex justify-content-center "
                         to="/"
                       >
                       { edit ?<>EDIT USER</> :<>ADD USER</>}
-                      </Link>
+                      </Link></>
+                      :
+                      <>
+                      { edit ?<div onClick={()=> alert("lütfen tüm bilgileri eksiksiz giriniz")}> EDIT USER</div> :<div onClick={()=> alert("lütfen tüm bilgileri eksiksiz giriniz")}> ADD USER</div>}
+                      </>
+                      }
                     </div>
                   </div>
                 </div>
