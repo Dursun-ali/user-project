@@ -47,18 +47,18 @@ const AddUser = () => {
             document.getElementsByClassName('LastName-user-input')[0].value=datas[idNumber].name.last == undefined ? "": datas[idNumber].name.last;
             document.getElementsByClassName('Age-user-input')[0].value=datas[idNumber].dob.age == undefined ? "": datas[idNumber].dob.age;
             document.getElementsByClassName('Gender-user-input')[0].value=datas[idNumber].gender == undefined ? "": datas[idNumber].gender ;
-            document.getElementsByClassName('Email-user-input')[0].value=datas[idNumber].email == undefined ? "": datas[idNumber].email ;
+            // document.getElementsByClassName('Email-user-input')[0].value=datas[idNumber].email == undefined ? "": datas[idNumber].email ;
             document.getElementsByClassName('PhotoUrl-user-input')[0].value=datas[idNumber].picture.large == undefined ? "": datas[idNumber].picture.large;
-            document.getElementsByClassName('Mobile-user-input')[0].value=datas[idNumber].phone == undefined ? "": datas[idNumber].phone;
+            // document.getElementsByClassName('Mobile-user-input')[0].value=datas[idNumber].phone == undefined ? "": datas[idNumber].phone;
 
           }else{
             document.getElementsByClassName('name-user-input')[0].value=myData[idNumber-dataNumber].FirstName == undefined ? "": myData[idNumber-dataNumber].FirstName;
             document.getElementsByClassName('LastName-user-input')[0].value=myData[idNumber-dataNumber].LastName == undefined ? "": myData[idNumber-dataNumber].LastName;
             document.getElementsByClassName('Age-user-input')[0].value=myData[idNumber-dataNumber].Age == undefined ? "": myData[idNumber-dataNumber].Age;
             document.getElementsByClassName('Gender-user-input')[0].value=myData[idNumber-dataNumber].Gender == undefined ? "": myData[idNumber-dataNumber].Gender;
-            document.getElementsByClassName('Email-user-input')[0].value=myData[idNumber-dataNumber].Email == undefined ? "": myData[idNumber-dataNumber].Email;
+            // document.getElementsByClassName('Email-user-input')[0].value=myData[idNumber-dataNumber].Email == undefined ? "": myData[idNumber-dataNumber].Email;
             document.getElementsByClassName('PhotoUrl-user-input')[0].value=myData[idNumber-dataNumber].PhotoUrl == undefined ? "": myData[idNumber-dataNumber].PhotoUrl;
-            document.getElementsByClassName('Mobile-user-input')[0].value=myData[idNumber-dataNumber].Mobile == undefined ? "": myData[idNumber-dataNumber].Mobile;
+            // document.getElementsByClassName('Mobile-user-input')[0].value=myData[idNumber-dataNumber].Mobile == undefined ? "": myData[idNumber-dataNumber].Mobile;
           }
         }else{
           document.getElementsByClassName('name-user-input')[0].value="";
@@ -75,28 +75,37 @@ const AddUser = () => {
       
 
   const change = () => {
-    myData[idNumber-dataNumber].FirstName=document.getElementsByClassName('name-user-input')[0].value;
-    myData[idNumber-dataNumber].LastName=document.getElementsByClassName('LastName-user-input')[0].value;
-    myData[idNumber-dataNumber].Email=document.getElementsByClassName('Email-user-input')[0].value;
-    myData[idNumber-dataNumber].Mobile=document.getElementsByClassName('Mobile-user-input')[0].value;
-    myData[idNumber-dataNumber].Gender=document.getElementsByClassName('Gender-user-input')[0].value;
-    myData[idNumber-dataNumber].Age=document.getElementsByClassName('Age-user-input')[0].value;
-    myData[idNumber-dataNumber].PhotoUrl=document.getElementsByClassName('PhotoUrl-user-input')[0].value;    
+
+    if (color=="black"&&lenght>=14) {
+      myData[idNumber-dataNumber].FirstName=document.getElementsByClassName('name-user-input')[0].value;
+      myData[idNumber-dataNumber].LastName=document.getElementsByClassName('LastName-user-input')[0].value;
+      myData[idNumber-dataNumber].Email=document.getElementsByClassName('Email-user-input')[0].value;
+      myData[idNumber-dataNumber].Mobile=document.getElementsByClassName('Mobile-user-input')[0].value;
+      myData[idNumber-dataNumber].Gender=document.getElementsByClassName('Gender-user-input')[0].value;
+      myData[idNumber-dataNumber].Age=document.getElementsByClassName('Age-user-input')[0].value;
+      myData[idNumber-dataNumber].PhotoUrl=document.getElementsByClassName('PhotoUrl-user-input')[0].value;
+    }
+    
   }
   const dataChange = () =>{
-    datas[idNumber].name.first=document.getElementsByClassName('name-user-input')[0].value;
-    datas[idNumber].name.last=document.getElementsByClassName('LastName-user-input')[0].value;
-    datas[idNumber].email=document.getElementsByClassName('Email-user-input')[0].value;
-    datas[idNumber].phone=document.getElementsByClassName('Mobile-user-input')[0].value;
-    datas[idNumber].gender=document.getElementsByClassName('Gender-user-input')[0].value;
-    datas[idNumber].dob.age=document.getElementsByClassName('Age-user-input')[0].value;
-    datas[idNumber].picture.large=document.getElementsByClassName('PhotoUrl-user-input')[0].value;
-    
+    if (color=="black"&&lenght>=14) {
+      datas[idNumber].name.first=document.getElementsByClassName('name-user-input')[0].value;
+      datas[idNumber].name.last=document.getElementsByClassName('LastName-user-input')[0].value;
+      datas[idNumber].email=document.getElementsByClassName('Email-user-input')[0].value;
+      datas[idNumber].phone=document.getElementsByClassName('Mobile-user-input')[0].value;
+      datas[idNumber].gender=document.getElementsByClassName('Gender-user-input')[0].value;
+      datas[idNumber].dob.age=document.getElementsByClassName('Age-user-input')[0].value;
+      datas[idNumber].picture.large=document.getElementsByClassName('PhotoUrl-user-input')[0].value;
+      
+    }
+
 
   }
 
   const userSave = () => {
-    setForm(newUser);
+    if (color=="black"&&lenght>=14) {
+      setForm(newUser); 
+    }
   };
 
   function validateEmail(e, inputText) {
@@ -108,8 +117,6 @@ const AddUser = () => {
       document.getElementsByClassName('my-mail-input')[0].style.color="red";
       setColor("red")
     }
-    // inputText ? 
-    // document.getElementsByClassName('my-mail-input')[0].style.color="black" : document.getElementsByClassName('my-mail-input')[0].style.color="red";
   }
 
   return (
@@ -282,8 +289,8 @@ const AddUser = () => {
                     <div
                       onClick={ ()=>{
                         if (edit) {
-                          setColor("black");
-                          setLenght(14)
+                          // setColor("black");
+                          // setLenght(14);
                           if (idNumber<dataNumber) {
                             dataChange()
                           }else{
@@ -324,3 +331,5 @@ const AddUser = () => {
   );
 };
 export default AddUser;
+
+
