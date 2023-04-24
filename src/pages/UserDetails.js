@@ -29,9 +29,13 @@ const UserDetails= () =>{
                     </div>
                     <div style={{padding:0}} className="col-md-6 col-2">
                     <div className="exit-button d-flex justify-content-end">
+                            
+                            <Link className="userListLink" to='/' >
                             <div  className="detailsButton">
-                            <Link className="userListLink" to='/'><i className="fa-sharp fa-solid fa-arrow-right-from-bracket"></i></Link> 
+                            <i className="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
                             </div>
+                            </Link>
+                            
                         </div>
                     </div>
                     

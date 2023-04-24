@@ -217,7 +217,7 @@ const AddUser = () => {
                   <div className="col-md-12  ">
                     
                     <div className="input-div">
-                      <div className="secondField  ">
+                      <div className="secondField">
                         <input
                           onChange={(e)=>{setNewUser({ ...newUser, [e.target.name]: e.target.value });
 
@@ -289,8 +289,6 @@ const AddUser = () => {
                     <div
                       onClick={ ()=>{
                         if (edit) {
-                          // setColor("black");
-                          // setLenght(14);
                           if (idNumber<dataNumber) {
                             dataChange()
                           }else{
@@ -303,20 +301,19 @@ const AddUser = () => {
                       }
                          
                       }
-                      className="button-add"
                     >
                         {
                         color=="black"&&lenght>=14 ? <>
                         
                           <Link
-                        className="linkAddUser d-flex justify-content-center "
+                        className="linkAddUser"
                         to="/"
                       >
-                      { edit ?<>EDIT USER</> :<>ADD USER</>}
+                      { edit ? <div className="buttonClass">EDIT USER</div> : <div className="buttonClass">ADD USER</div>}
                       </Link></>
                       :
                       <>
-                      { edit ?<div onClick={()=> alert("lütfen tüm bilgileri eksiksiz giriniz")}> EDIT USER</div> :<div onClick={()=> alert("lütfen tüm bilgileri eksiksiz giriniz")}> ADD USER</div>}
+                      { edit ?<div className="buttonClass" onClick={()=> alert("lütfen tüm bilgileri eksiksiz giriniz")}> EDIT USER</div> :<div className="buttonClass" onClick={()=> alert("lütfen tüm bilgileri eksiksiz giriniz")}> ADD USER</div>}
                       </>
                       }
                     </div>
