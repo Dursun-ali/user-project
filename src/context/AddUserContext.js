@@ -16,8 +16,12 @@ export const UserProvider = ({ children }) => {
     const [idNumber,setIdNumber]=useState();
     const [newUser, setNewUser]=useState({});
 
-    const [edit,setEdit] = useState(false);
+    const [edit,setEdit] = useState();//!edit degerını bız burda false normalde
   
+    useEffect(() => {
+      form && setMyData([...myData,form])
+    }, [form])
+
     useEffect(() => {
         axios(`https://randomuser.me/api/?results=${dataNumber}`)
           .then((response) => setDatas(response.data.results))
@@ -28,9 +32,7 @@ export const UserProvider = ({ children }) => {
       }, []);
       
 
-useEffect(() => {
-  form && setMyData([...myData,form])
-}, [form])
+
 
     const values = {
         datas,

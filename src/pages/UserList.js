@@ -11,7 +11,7 @@ const Home = () => {
   const{dataNumber,setDataNumber}=useContext(AddUserContex)
   const{idNumber,setIdNumber}=useContext(AddUserContex) 
   const {edit, setEdit} = useContext(AddUserContex)
-  const {newUser, setNewUser} = useContext(AddUserContex);
+  const {newUser, setNewUser} = useContext(AddUserContex)
   
 
   const getId= (e) =>{

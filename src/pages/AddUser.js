@@ -23,21 +23,60 @@ const AddUser = () => {
   const [mailControl, setMailControl] = useState(false)
   const [color,setColor] =useState();
   const [lenght,setLenght]=useState();
+  const [mailLenght,setMailLenght]=useState(0);
+
+  useEffect(()=>{
+    if (lenght==undefined) {
+      setLenght(0)
+    }
+    if (color==undefined) {
+      setColor("black")
+    }
+    // if(!edit) {
+    //   newUser.FirstName="";
+    // }
+
+  },[])
+  
+  //! inputun ıcıne bısey yazdıgımız zaman ordakı atama degerı sılınmıs olur.  
+   
+    // console.log(newUser);
+  // console.log("mail-lenght : "+ mailLenght);
+  // console.log("mail-color : "+color);
+  // console.log("form degeri : "+form);
+
+  console.log("name : "+ names);
+  console.log("last-name : "+ lastName);
 
   const onChangeInput = (e) => {
-    setNewUser({ ...newUser, [e.target.name]: e.target.value });
+    setNewUser({...newUser, [e.target.name]: e.target.value });
   }
- 
-    useEffect(()=>{
-      setNames(newUser.FirstName);
-      setLastName(newUser.LastName);
-      setEmail(newUser.Email);
-      setAge(newUser.Age);
-      setGender(newUser.Gender);
-      setPhotoUrl(newUser.PhotoUrl);
-      setMobile(newUser.Mobile);
 
-    },[newUser])
+  useEffect(()=>{
+    if (!edit) {
+      setNewUser("")
+    }
+  },[edit])
+
+  
+ console.log(newUser);
+    // useEffect(()=>{ 
+    //     setNames(newUser.FirstName);
+    //     setLastName(newUser.LastName);
+    //     setEmail(newUser.Email);
+    //     setAge(newUser.Age);
+    //     setGender(newUser.Gender);
+    //     setPhotoUrl(newUser.PhotoUrl);
+    //     setMobile(newUser.Mobile);
+    // },[newUser])
+    // useEffect(()=>{
+    //   if (!edit) {
+    //     setNames("")
+    //     setLastName("")
+    //   }
+    // },[])
+    
+
 
       useEffect(()=>{
         if (edit) {
@@ -76,7 +115,7 @@ const AddUser = () => {
 
   const change = () => {
 
-    if (color=="black"&&lenght>=14) {
+    if (color=="black"&&(lenght>=14||lenght<1)) {
       myData[idNumber-dataNumber].FirstName=document.getElementsByClassName('name-user-input')[0].value;
       myData[idNumber-dataNumber].LastName=document.getElementsByClassName('LastName-user-input')[0].value;
       myData[idNumber-dataNumber].Email=document.getElementsByClassName('Email-user-input')[0].value;
@@ -88,7 +127,7 @@ const AddUser = () => {
     
   }
   const dataChange = () =>{
-    if (color=="black"&&lenght>=14) {
+    if (color=="black"&&(lenght>=14||lenght<1)) {
       datas[idNumber].name.first=document.getElementsByClassName('name-user-input')[0].value;
       datas[idNumber].name.last=document.getElementsByClassName('LastName-user-input')[0].value;
       datas[idNumber].email=document.getElementsByClassName('Email-user-input')[0].value;
@@ -96,21 +135,18 @@ const AddUser = () => {
       datas[idNumber].gender=document.getElementsByClassName('Gender-user-input')[0].value;
       datas[idNumber].dob.age=document.getElementsByClassName('Age-user-input')[0].value;
       datas[idNumber].picture.large=document.getElementsByClassName('PhotoUrl-user-input')[0].value;
-      
     }
-
-
   }
 
   const userSave = () => {
-    if (color=="black"&&lenght>=14) {
+    if (color=="black"&&(lenght>=14||lenght<1)) {
       setForm(newUser); 
     }
   };
-
+  
   function validateEmail(e, inputText) {
 
-    if (inputText) {
+    if (inputText||document.getElementsByClassName('my-mail-input')[0].value.lenght==0) {
       document.getElementsByClassName('my-mail-input')[0].style.color="black";
       setColor("black")
     }else{
@@ -220,8 +256,10 @@ const AddUser = () => {
                       <div className="secondField">
                         <input
                           onChange={(e)=>{setNewUser({ ...newUser, [e.target.name]: e.target.value });
-
-                          var mailControl = e.target.value.match(/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/)
+                          setMailLenght(e.target.value.length);if (mailLenght==0) {
+                            setColor("black")
+                          }
+                          ;var mailControl = e.target.value.match(/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/)
                           validateEmail(e, mailControl)
                         }}
                           type="text"
@@ -284,8 +322,7 @@ const AddUser = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-12  button-div">
-                    
+                  <div className="col-md-12  button-div">                   
                     <div
                       onClick={ ()=>{
                         if (edit) {
@@ -293,18 +330,15 @@ const AddUser = () => {
                             dataChange()
                           }else{
                             change()
-                          }
-                          
+                          }                   
                         }else{
                           userSave()
                         }
-                      }
-                         
+                      }                       
                       }
                     >
                         {
-                        color=="black"&&lenght>=14 ? <>
-                        
+                        color=="black"&&(lenght>=14||lenght<1) ? <>                       
                           <Link
                         className="linkAddUser"
                         to="/"
