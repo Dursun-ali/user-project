@@ -54,7 +54,7 @@ const UserDetails= () =>{
                             <p className="second-details-p">{ datas? datas[idNumber].name.first: "kullanıcı seçilmedi"} {  datas? datas[idNumber].name.last: "kullanıcı seçilmedi"}</p>
                         </div>
                         <div className="d-flex justify-content-center ">
-                            <Link to='/AddUser'>
+                            <Link style={{textDecoration:"none"}} to='/AddUser'>
                             <div onClick={()=>{console.log(datas[idNumber]);setEdit(true)}} className="editButton ">
                             Edit Profile
                             </div> 
@@ -124,7 +124,7 @@ const UserDetails= () =>{
                             <p className="second-details-p">{ myData? myData[idNumber-dataNumber]?.FirstName: "kullanıcı seçilmedi"} {  myData? myData[idNumber-dataNumber]?.LastName: "kullanıcı seçilmedi"}</p>
                         </div>
                         <div className="d-flex justify-content-center ">
-                        <Link to='/AddUser'>
+                        <Link style={{textDecoration:"none"}} to='/AddUser'>
                             <div onClick={()=>{console.log(myData[idNumber-dataNumber]);setEdit(true)}} className="editButton ">
                             Edit Profile
                             </div> 
