@@ -5,8 +5,6 @@ import AddUserContex from "../context/AddUserContext";
 
 const UserDetails= () =>{
 
-    // const params=useParams();
-    // console.log(params);
     const{datas,setDatas}=useContext(AddUserContex) 
     const{myData,setMyData}=useContext(AddUserContex)
     const{number,setNumber}=useContext(AddUserContex)
