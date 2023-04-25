@@ -32,17 +32,13 @@ const AddUser = () => {
     if (color==undefined) {
       setColor("black")
     }
-    // if(!edit) {
-    //   newUser.FirstName="";
-    // }
-
   },[])
   
   //! inputun ıcıne bısey yazdıgımız zaman ordakı atama degerı sılınmıs olur.  
    
     // console.log(newUser);
-  // console.log("mail-lenght : "+ mailLenght);
-  // console.log("mail-color : "+color);
+  console.log("mail-lenght : "+ mailLenght);
+  console.log("mail-color : "+color);
   // console.log("form degeri : "+form);
 
   console.log("name : "+ names);
@@ -58,8 +54,14 @@ const AddUser = () => {
     }
   },[edit])
 
+  useEffect(()=>{
+    if(mailLenght==0) {
+      setColor("black")
+    }
+  },[mailLenght])
+
   
- console.log(newUser);
+//  console.log(newUser);
     // useEffect(()=>{ 
     //     setNames(newUser.FirstName);
     //     setLastName(newUser.LastName);
@@ -256,10 +258,8 @@ const AddUser = () => {
                       <div className="secondField">
                         <input
                           onChange={(e)=>{setNewUser({ ...newUser, [e.target.name]: e.target.value });
-                          setMailLenght(e.target.value.length);if (mailLenght==0) {
-                            setColor("black")
-                          }
-                          ;var mailControl = e.target.value.match(/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/)
+                          setMailLenght(e.target.value.length);
+                          var mailControl = e.target.value.match(/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/)
                           validateEmail(e, mailControl)
                         }}
                           type="text"
