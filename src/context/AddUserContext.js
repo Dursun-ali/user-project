@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
     const [idNumber,setIdNumber]=useState();
     const [newUser, setNewUser]=useState({});
 
-    const [edit,setEdit] = useState();//!edit degerını bız burda false normalde
+    const [edit,setEdit] = useState();//!edit degerimiz ilk basta false;
   
     useEffect(() => {
       form && setMyData([...myData,form])

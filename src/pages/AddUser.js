@@ -34,16 +34,7 @@ const AddUser = () => {
     }
   },[])
   
-  //! inputun ıcıne bısey yazdıgımız zaman ordakı atama degerı sılınmıs olur.  
    
-    // console.log(newUser);
-  console.log("mail-lenght : "+ mailLenght);
-  console.log("mail-color : "+color);
-  // console.log("form degeri : "+form);
-
-  console.log("name : "+ names);
-  console.log("last-name : "+ lastName);
-
   const onChangeInput = (e) => {
     setNewUser({...newUser, [e.target.name]: e.target.value });
   }
@@ -59,26 +50,6 @@ const AddUser = () => {
       setColor("black")
     }
   },[mailLenght])
-
-  
-//  console.log(newUser);
-    // useEffect(()=>{ 
-    //     setNames(newUser.FirstName);
-    //     setLastName(newUser.LastName);
-    //     setEmail(newUser.Email);
-    //     setAge(newUser.Age);
-    //     setGender(newUser.Gender);
-    //     setPhotoUrl(newUser.PhotoUrl);
-    //     setMobile(newUser.Mobile);
-    // },[newUser])
-    // useEffect(()=>{
-    //   if (!edit) {
-    //     setNames("")
-    //     setLastName("")
-    //   }
-    // },[])
-    
-
 
       useEffect(()=>{
         if (edit) {
