@@ -31,12 +31,21 @@
   margin: 0;
 }
 .detailsButton {
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: #007bff;
-  padding: 4px 20px;
+  padding: 4px 12px;
   font-weight: 500;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detailsButton i{
+  font-size: 16px;
+}
+.userListLink{
+  padding-right: 16px;
 }
 .exit-button {
   padding: 68px 64px 24px 105px;

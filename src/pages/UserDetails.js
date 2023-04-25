@@ -18,22 +18,29 @@ const UserDetails= () =>{
     <div className="main-details-container">
         <div className="details-section">
             <div className="details-container">
-                <div style={{padding:0,margin:0}} className="row d-flex justify-content-center">
-                 
+                <div style={{padding:0,margin:0}} className="row d-flex justify-content-center">                 
                     { idNumber<dataNumber ?  
                     <>  
                     <div style={{padding:0}} className="col-md-6 col-10">
-                    <p className="first-details-p">User Details</p>
+                
+                    <p className="first-details-p d-flex">
+                    <div style={{display:"flex",alignItems:"center"}}>
+
+                    <Link className="userListLink" to='/' >
+                           <div  className="detailsButton">
+                            <i class="fa-sharp fa-solid fa-chevron-left"></i>
+                            {/* <i class="fa-sharp fa-solid fa-circle-left"></i>     */}
+                            </div>
+                           
+                           
+                            </Link>     
+                            </div>
+                        User Details</p>
                     </div>
                     <div style={{padding:0}} className="col-md-6 col-2">
                     <div className="exit-button d-flex justify-content-end">
                             
-                            <Link className="userListLink" to='/' >
-                            <div  className="detailsButton">
-                            <i className="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
-                            </div>
-                            </Link>
-                            
+                                        
                         </div>
                     </div>
                     
@@ -52,7 +59,7 @@ const UserDetails= () =>{
                             <p className="second-details-p">{ datas? datas[idNumber].name.first: "kullanıcı seçilmedi"} {  datas? datas[idNumber].name.last: "kullanıcı seçilmedi"}</p>
                         </div>
                         <div className="d-flex justify-content-center ">
-                            <Link style={{textDecoration:"none"}} to='/AddUser'>
+                            <Link style={{textDecoration:"none"}} to='/EditUser'>
                             <div onClick={()=>{console.log(datas[idNumber]);setEdit(true)}} className="editButton ">
                             Edit Profile
                             </div> 

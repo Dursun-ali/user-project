@@ -14,6 +14,8 @@ function App() {
     <Route path="/" element ={<UserList />} ></Route>
     <Route path="/AddUser" element ={<AboutUs/>} ></Route>
     <Route path="/UserDetails" element ={<UserDetails/>} ></Route>
+    <Route path="/EditUser" element ={<AboutUs/>} ></Route>
+
   </Routes>
   </UserProvider>
 
