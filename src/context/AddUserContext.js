@@ -78,8 +78,9 @@ export const UserProvider = ({ children }) => {
       }
       ,{
         dark:{
+          boxShadow:  "0px 0px 0px 5px #04748b62",
           backgroundColor:"#222831",
-          boxShadow: "rgba(3, 102, 214, 0.3) 0px 0px 0px 3px"
+          
       },light:{
         backgroundColor:"white",
       },

@@ -39,7 +39,7 @@ const Home = () => {
               <div  className="col-6 ">
               <label  className="darkOrLight-label">
                 <input onClick={()=>{ slider ? setSlider(false) : setSlider(true)}} className="darkOrLight-label-input" type = 'checkbox'/>
-                <span className= 'slider'></span>
+                <span style={{boxShadow: "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"}} className= 'slider'></span>
               </label>
                 <div
                

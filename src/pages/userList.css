@@ -95,7 +95,7 @@
 
 :root {
     --light: #ecedf0;
-    --dark: #007BFF;
+    --dark: #bcd0e4;
   }
 
   
@@ -117,6 +117,7 @@
   .darkOrLight-label-input {
     position: absolute;
     display: none;
+    
   }
   
   .slider {
