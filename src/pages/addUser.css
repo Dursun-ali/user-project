@@ -2,6 +2,7 @@
     padding: 82px 0;
     /* background-color: #007289; */
     background-color: #f5f5f5;
+    
 }
 
 .addUser-section{
@@ -55,6 +56,7 @@
     font-size: 14px;
     color: #777;
     transition: 300ms all;
+    border-radius: 8px;
 }
 
 .field input {
@@ -72,6 +74,7 @@
 .field input:focus {
     outline: 0;
     border-color: #0091ae !important;
+    box-shadow: 0px 0px 0px 3px #04748b62;
 }
 
 .field input:valid + label::before {
@@ -92,6 +95,7 @@
     color: #016d83 !important;
     padding: 0 6px;
     left: 9px;
+    border-radius: 8px !important;
 }
 
 .secondField {
@@ -107,7 +111,8 @@
     line-height: 40px;
     font-size: 14px;
     color: #777;
-    transition: 300ms all;
+    transition: 300ms all;    
+    border-radius: 8px;
 }
 
 .secondField input {
@@ -119,12 +124,14 @@
     color: #222;
     border: 1px solid #ccc;
     border-radius: 3px;
+    
 }
 
 
 .secondField input:focus {
     outline: 0;
     border-color: #0091ae !important;
+    box-shadow: 0px 0px 0px 3px #04748b62;
 }
 
 .secondField input:valid + label::before {
@@ -145,4 +152,11 @@
     color: #016d83 !important;
     padding: 0 6px;
     left: 9px;
+    border-radius: 8px !important;
+
+}
+
+.add-edit-row{
+    padding: 72px 36px;
+    border-radius: 10px;
 }

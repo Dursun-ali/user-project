@@ -1,9 +1,14 @@
 .main-user-container{
     padding: 50px 0;
     background-color: #f5f5f5;
+    transition: 300ms ease;
 }
 .secondRow{
  padding-top: 32px;
+}
+.user-icons{
+  cursor: pointer;
+  transition: 300ms ease;
 }
 .user-section{
     width: 96%;
@@ -12,6 +17,8 @@
     border-radius: 10px;
     min-height: 86vh;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: 300ms ease;
+    
     
 }
 .userWrite{
@@ -19,6 +26,7 @@
     color: #353535;
     font-weight: 600;
     padding-left: 42px;
+    transition: 300ms ease;
 }
 .button-container{
     padding-right: 42px; 
@@ -28,6 +36,7 @@
     background-color:  	#007bff;
     border-radius: 8px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: 300ms ease;
 }
 .list-img{
     width: 35px;
@@ -58,6 +67,7 @@
     font-size: 15px;
     border-bottom: 0.1px solid rgb(239, 239, 239);
     border-top: 0.1px solid rgb(239, 239, 239);
+    transition: 300ms ease;
 }
 .second-title-container{
     display: flex;
@@ -68,5 +78,76 @@
     height: 60px;
     border-bottom: 0.1px solid rgb(228, 228, 228);
     font-size: 14px;
+    transition: 300ms ease;
 }
 
+
+
+
+
+
+.darkOrLight-label{
+    position: absolute;
+    right: 260px;
+    top: 38px;
+}
+
+
+:root {
+    --light: #ecedf0;
+    --dark: #007BFF;
+  }
+
+  
+  .toggle-switch {
+    position: relative;
+    width: 200px;
+  }
+  
+  .darkOrLight-label {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background-color: var(--dark);
+    border-radius: 50px;
+    cursor: pointer;
+    
+  }
+  
+  .darkOrLight-label-input {
+    position: absolute;
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    border-radius: 50px;
+    transition: 0.3s;
+    
+    
+  }
+  
+  .darkOrLight-label-input:checked ~ .slider {
+    background-color: var(--light);
+  }
+  
+  .slider::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 11px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: inset 5px -4px 0px 0px var(--light);
+    background-color: var(--dark);
+    transition: 0.3s;
+  }
+  
+  .darkOrLight-label-input:checked ~ .slider::before {
+    transform: translateX(25px);
+    background-color: var(--dark);
+    box-shadow: none;
+  }

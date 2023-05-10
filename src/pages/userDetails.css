@@ -1,5 +1,6 @@
 .main-details-container {
   background-color: #fbfbfb;
+  height: 100vh;
 }
 .details-section {
   width: 94%;
@@ -107,3 +108,10 @@
   padding-right: 24px;
 }
 
+.col-md-6-userDetails{
+  padding: 0 !important;
+}
+.details-row{
+  padding: 0;
+  margin: 0;
+}
