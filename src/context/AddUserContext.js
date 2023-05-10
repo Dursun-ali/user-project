@@ -6,6 +6,10 @@ const AddUsercontext = createContext();
 
 export const UserProvider = ({ children }) => {
 
+  const defaultSlider=localStorage.getItem('slider') 
+    
+
+  
     const[form,setForm]=useState();
     const [datas, setDatas] = useState([]); 
     const [loading, setLoading] = useState();
@@ -17,16 +21,25 @@ export const UserProvider = ({ children }) => {
     const [newUser, setNewUser]=useState({});
     const [edit,setEdit] = useState();//!edit degerimiz ilk basta false;
     
-    const [slider,setSlider]=useState();
+    const SLİDER=localStorage.getItem('slider')
+    console.log(SLİDER);
+    
+    console.log(JSON.parse(SLİDER));
+      
+    const [slider,setSlider]=useState(JSON.parse(SLİDER));
     const [replace,setReplace]=useState();
     const [replace1,setReplace1]=useState();
     const [replace2,setReplace2]=useState();
     const [replace3,setReplace3]=useState();
     const [replace4,setReplace4]=useState();
     const [replace5,setReplace5]=useState();
+    
+
+    useEffect(() => {
+      localStorage.setItem('slider',JSON.stringify(slider))
 
 
-  
+    }, [slider]);
 
 
       var array=[{

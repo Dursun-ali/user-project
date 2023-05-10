@@ -19,12 +19,12 @@ const Home = () => {
   const {replace2,setReplace2}=useContext(AddUserContex);
   const {replace3,setReplace3}=useContext(AddUserContex);
   const {replace4,setReplace4}=useContext(AddUserContex);
- 
 
   
   const getId= (e) =>{
     setIdNumber(e.target.id)
   }
+  console.log(slider);
 
   return (
     <>
