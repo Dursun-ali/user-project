@@ -5,6 +5,9 @@ import AddUserContex from "../context/AddUserContext";
 
 const Home = () => {
 
+
+  const defaultInput=localStorage.getItem('chexbox') 
+
   const{datas,setDatas}=useContext(AddUserContex)
   const{myData,setMyData}=useContext(AddUserContex)
   const{number,setNumber}=useContext(AddUserContex)
@@ -21,10 +24,26 @@ const Home = () => {
   const {replace4,setReplace4}=useContext(AddUserContex);
 
   
+  const ChexboxParse=localStorage.getItem('slider')
+
+ 
   const getId= (e) =>{
     setIdNumber(e.target.id)
   }
-  console.log(slider);
+  // console.log(slider);
+ 
+    useEffect(()=>{
+      document.querySelector('#chexboxInput').checked=JSON.parse(defaultInput);
+      console.log(JSON.parse( defaultInput));
+    },[])
+
+  // todo : yapılacak tek sey chexbox olan ınput degerımızı hafızada tutmak
+  useEffect(()=>{
+    var isInputChecked=document.querySelector('#chexboxInput').checked;
+    localStorage.setItem('chexbox',JSON.stringify(isInputChecked))    
+  },[slider])
+
+
 
   return (
     <>
@@ -38,7 +57,7 @@ const Home = () => {
               </div>
               <div  className="col-6 ">
               <label  className="darkOrLight-label">
-                <input onClick={()=>{ slider ? setSlider(false) : setSlider(true)}} className="darkOrLight-label-input" type = 'checkbox'/>
+                <input onClick={()=>{ slider ? setSlider(false) : setSlider(true)}} id="chexboxInput" className="darkOrLight-label-input" type = 'checkbox'/>
                 <span style={{boxShadow: "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"}} className= 'slider'></span>
               </label>
                 <div

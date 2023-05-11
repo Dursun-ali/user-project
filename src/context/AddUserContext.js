@@ -22,9 +22,9 @@ export const UserProvider = ({ children }) => {
     const [edit,setEdit] = useState();//!edit degerimiz ilk basta false;
     
     const SLİDER=localStorage.getItem('slider')
-    console.log(SLİDER);
+    // console.log(SLİDER);
     
-    console.log(JSON.parse(SLİDER));
+    // console.log(JSON.parse(SLİDER));
       
     const [slider,setSlider]=useState(JSON.parse(SLİDER));
     const [replace,setReplace]=useState();
@@ -37,8 +37,6 @@ export const UserProvider = ({ children }) => {
 
     useEffect(() => {
       localStorage.setItem('slider',JSON.stringify(slider))
-
-
     }, [slider]);
 
 
