@@ -33,6 +33,8 @@ export const UserProvider = ({ children }) => {
     const [replace3,setReplace3]=useState();
     const [replace4,setReplace4]=useState();
     const [replace5,setReplace5]=useState();
+
+    const [dataLoading,setDataLoading]=useState({display:"none"});
     
 
     useEffect(() => {
@@ -130,9 +132,17 @@ export const UserProvider = ({ children }) => {
           .finally(() => {
             setLoading(false);
           });
+           
+         
       }, []);
-      
 
+      useEffect(()=>{
+        
+        datas.length==dataNumber ? setDataLoading({display:"none"}) : setDataLoading({display:"block"})
+      
+      },[datas])
+      
+      console.log(dataLoading);
 
 
     const values = {
@@ -163,7 +173,8 @@ export const UserProvider = ({ children }) => {
         replace2,setReplace2,
         replace3,setReplace3,
         replace4,setReplace4,
-        replace5,setReplace5
+        replace5,setReplace5,
+        dataLoading,setDataLoading
         
     }
     

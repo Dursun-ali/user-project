@@ -23,6 +23,7 @@ const Home = () => {
   const {replace3,setReplace3}=useContext(AddUserContex);
   const {replace4,setReplace4}=useContext(AddUserContex);
 
+ const{dataLoading,setDataLoading}=useContext(AddUserContex)
   
   const ChexboxParse=localStorage.getItem('slider')
 
@@ -34,7 +35,6 @@ const Home = () => {
  
     useEffect(()=>{
       document.querySelector('#chexboxInput').checked=JSON.parse(defaultInput);
-      console.log(JSON.parse( defaultInput));
     },[])
 
   // todo : yapılacak tek sey chexbox olan ınput degerımızı hafızada tutmak
@@ -47,6 +47,13 @@ const Home = () => {
 
   return (
     <>
+    <div className="position-absolute" style={{left:0, right:0, top:0, bottom:0,display:'flex',
+    justifyContent:'center',
+    alignItems: 'center'}}>
+    <div style={dataLoading} className="datas-loading"></div>
+    </div>
+
+    
       <div style={replace} className="main-user-container">
         <div style={replace2} className="user-section">
           <div  className="user-header-container">
