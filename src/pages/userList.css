@@ -9,7 +9,9 @@
 .user-icons{
   cursor: pointer;
   transition: 300ms ease;
+ 
 }
+
 .user-section{
     width: 96%;
     margin: 0 auto;
@@ -37,6 +39,19 @@
     border-radius: 8px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     transition: 300ms ease;
+}
+.button-class-detail{
+  border: none;
+  background-color: #007bff;
+  padding: 8px 24px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  margin-right: 16px;
+  transition: 0.3s ease;
+}
+.button-class-detail:focus{
+background-color: rgb(227, 227, 227);
 }
 .list-img{
     width: 35px;
@@ -80,6 +95,7 @@
     font-size: 14px;
     transition: 300ms ease;
 }
+
 
 
 

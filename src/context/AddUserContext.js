@@ -137,12 +137,10 @@ export const UserProvider = ({ children }) => {
       }, []);
 
       useEffect(()=>{
-        
-        datas.length==dataNumber ? setDataLoading({display:"none"}) : setDataLoading({display:"block"})
-      
+        datas.length==dataNumber ? setDataLoading({display:"none"}) : setDataLoading({display:"block"}) 
       },[datas])
       
-      console.log(dataLoading);
+  
 
 
     const values = {

@@ -3,6 +3,7 @@ import "./userList.css";
 import { Routes, Route,Link,NavLink, useParams } from "react-router-dom";
 import AddUserContex from "../context/AddUserContext";
 
+
 const Home = () => {
 
 
@@ -23,18 +24,20 @@ const Home = () => {
   const {replace3,setReplace3}=useContext(AddUserContex);
   const {replace4,setReplace4}=useContext(AddUserContex);
 
- const{dataLoading,setDataLoading}=useContext(AddUserContex)
+ const{dataLoading,setDataLoading}=useContext(AddUserContex);
   
   const ChexboxParse=localStorage.getItem('slider')
 
- 
+  
+
   const getId= (e) =>{
     setIdNumber(e.target.id)
   }
-  // console.log(slider);
+
  
     useEffect(()=>{
       document.querySelector('#chexboxInput').checked=JSON.parse(defaultInput);
+      // idNumber==undefined&&setIdNumber("()")
     },[])
 
   // todo : yapılacak tek sey chexbox olan ınput degerımızı hafızada tutmak
@@ -43,10 +46,18 @@ const Home = () => {
     localStorage.setItem('chexbox',JSON.stringify(isInputChecked))    
   },[slider])
 
+  // useEffect(()=>{
+  //   if (idNumber=="()") {
+  //     document.getElementsByClassName('button-class-detail')[0].disabled=true
+  //   }else{
+  //     document.getElementsByClassName('button-class-detail')[0].disabled=false
+  //   }
+  // },[idNumber])
 
 
   return (
     <>
+
     <div style={dataLoading} >
     <div className="position-absolute" style={{left:0, right:0, top:0, bottom:0,display:'flex',
     justifyContent:'center',
@@ -70,10 +81,13 @@ const Home = () => {
                 <input onClick={()=>{ slider ? setSlider(false) : setSlider(true)}} id="chexboxInput" className="darkOrLight-label-input" type = 'checkbox'/>
                 <span style={{boxShadow: "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"}} className= 'slider'></span>
               </label>
+             
                 <div
-               
                   className="button-container d-flex justify-content-end"
                 >
+                   {/* <Link  className="userLink" to={idNumber?.toString()}> 
+                        <button style={replace3} className="button-class-detail">{`${idNumber} TH DETAIL`}</button>
+                      </Link>  */}
                   <Link className="link-add" to="/AddUser">
                     <div  style={replace3} onClick={()=>{setEdit(false)}} className="button-box d-flex align-items-center justify-content-center">
                      
@@ -103,7 +117,7 @@ const Home = () => {
               </div>
               <div
                 style={{ paddingRight: 0, paddingLeft: 0 }}
-                className="col  "
+                className="col"
               >
                 <div style={replace1} className="title-container">surname</div>
               </div>
@@ -148,9 +162,10 @@ const Home = () => {
                   </div>
                   <div style={{ paddingLeft: 0 }} className="col  ">
                     <div style={replace2}  className="second-title-container">
-                       <Link  className="userLink" to="/UserDetails"> 
+                    <Link  className="userLink" to={oIndex.toString()}> 
+                        {/* <button style={replace3} className="button-class-detail">{`${idNumber} TH DETAIL`}</button> */}
                         <i  id={oIndex} onClick={(e) => {getId(e)}} style={replace2}  className="fa-solid fa-user user-icons"></i>
-                      </Link> 
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -186,7 +201,9 @@ const Home = () => {
                   </div>
                   <div style={{ paddingLeft: 0 }} className="col  ">
                     <div style={replace2} className="second-title-container">
-                      <Link className="userLink" to="/UserDetails">
+                   
+                        <Link  className="userLink" to={(oIndex+dataNumber).toString()}> 
+                        {/* <button style={replace3} className="button-class-detail">{`${idNumber} TH DETAIL`}</button> */}
                         <i id={oIndex+dataNumber} onClick={(e) => {getId(e)}} style={replace2} className="fa-solid fa-user"></i>
                       </Link>
                     </div>
