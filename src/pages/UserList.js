@@ -162,7 +162,7 @@ const Home = () => {
                   </div>
                   <div style={{ paddingLeft: 0 }} className="col  ">
                     <div style={replace2}  className="second-title-container">
-                    <Link  className="userLink" to={oIndex.toString()}> 
+                    <Link  className="userLink" to={`UserDetails/${oIndex.toString()}`}> 
                         {/* <button style={replace3} className="button-class-detail">{`${idNumber} TH DETAIL`}</button> */}
                         <i  id={oIndex} onClick={(e) => {getId(e)}} style={replace2}  className="fa-solid fa-user user-icons"></i>
                       </Link>
@@ -202,7 +202,7 @@ const Home = () => {
                   <div style={{ paddingLeft: 0 }} className="col  ">
                     <div style={replace2} className="second-title-container">
                    
-                        <Link  className="userLink" to={(oIndex+dataNumber).toString()}> 
+                        <Link  className="userLink" to={`UserDetails/${(oIndex+dataNumber).toString()}`}> 
                         {/* <button style={replace3} className="button-class-detail">{`${idNumber} TH DETAIL`}</button> */}
                         <i id={oIndex+dataNumber} onClick={(e) => {getId(e)}} style={replace2} className="fa-solid fa-user"></i>
                       </Link>
